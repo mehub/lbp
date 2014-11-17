@@ -1,0 +1,181 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.asc</groupId>
+	<artifactId>mds</artifactId>
+	<packaging>war</packaging>
+	<version>3.6.0-SNAPSHOT</version>
+	<description>mds Web Project</description>
+
+	<properties>
+	    <cxf.version>2.7.6</cxf.version>
+	</properties>
+	
+	<dependencies>
+		<!-- ASC -->
+		<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-common-persist</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	    </dependency>
+	    
+		<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-common-excel</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	    </dependency>
+		
+		<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-common-cache</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	    </dependency>
+	    
+		<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-common-conf</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	      <type>war</type>
+	    </dependency>
+	    
+	  	<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-common-web</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	      <type>war</type>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-security-jar</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-security-web</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	      <type>war</type>
+	    </dependency>
+	    
+		<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-webservice</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	      <type>war</type>
+	    </dependency>
+
+		<dependency>
+	      <groupId>com.asc</groupId>
+	      <artifactId>asc-search-hibernate</artifactId>
+	      <version>2.0.0-SNAPSHOT</version>
+	    </dependency>
+	    
+	    <!-- jcseg -->
+	  	<dependency>
+	      <groupId>org.lionsoul.jcseg</groupId>
+		  <artifactId>jcseg-analyzer</artifactId>
+		  <version>1.9.5</version>
+	  	</dependency>
+	  	<dependency>
+		  <groupId>org.lionsoul.jcseg</groupId>
+		  <artifactId>jcseg-core</artifactId>
+		  <version>1.9.5</version>
+		</dependency>
+	  	<dependency>
+	      <groupId>org.lionsoul.jcseg</groupId>
+		  <artifactId>jcseg-solr</artifactId>
+		  <version>1.9.5</version>
+	  	</dependency>
+	    
+		<!-- servlet-api jsp-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- ajax for refresh part of page -->
+		<dependency>
+			<groupId>org.ajaxanywhere</groupId>
+			<artifactId>ajaxanywhere</artifactId>
+			<version>1.2.1</version>
+			<scope>system</scope>
+			<systemPath>F:\prototype\asc-common\asc-common-web\lib\ajaxanywhere-1.2.1.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.5.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency> -->
+		
+		<!-- cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-databinding-aegis</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.4</version>
+		    <scope>test</scope>
+		</dependency>
+  </dependencies>
+  
+  <build>
+	<finalName>${project.artifactId}</finalName>
+    <plugins>
+    	<plugin> 
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.6</source>
+				<target>1.6</target>
+				<encoding>utf-8</encoding>
+			</configuration>
+		</plugin>
+    	<plugin> 
+			<groupId>org.zeroturnaround</groupId>
+			<artifactId>jrebel-maven-plugin</artifactId>
+			<version>1.0.7</version>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat6-maven-plugin</artifactId>
+			<version>2.0-beta-1</version>
+			<configuration>
+				<server>tomcat6</server>
+				<port>8080</port>
+				<contextReloadable>true</contextReloadable>
+			</configuration>
+		</plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="org" namespace="/mds" extends="mds">
+	
+		 <!-- 客户别称表  -->
+    	 <action name="*CustomerAlias" method="{1}" class="customerAliasAction">
+    			<result name="list">customeralias.jsp</result>
+    			<result name="templateDownload" type="stream">
+					<param name="contentType">application/vnd.ms-excel</param>
+					<param name="contentDisposition">attachment;filename="${templateFileName}"</param>
+					<param name="inputName">templates</param>
+					<param name="bufferSize">4096</param>
+				</result>
+    	 </action>
+    	    	 
+		 <!-- 配置*FactoryOrg/*FranchiseOrg必须放在*Org前面 ,否则Url优先被*Org拦截-->
+		 <!-- 厂商企业 -->
+    	 <action name="*FactoryOrg" method="{1}" class="factoryOrgAction">
+    			<result name="list">factoryorg.jsp</result>
+    			<result name="listTemp">factoryorgtemp.jsp</result>
+    			<result name="update">update.jsp</result>
+    			<result name="detail">detail.jsp</result>
+    			<result name="qualityCheck">qualityCheck.jsp</result>
+    			<result name="success">factoryorg.jsp</result>
+    	 </action>
+    	 
+    	 <!-- 经销商企业 -->    	 
+    	 <action name="*FranchiseOrg" method="{1}" class="franchiseOrgAction">
+    			<result name="success">franchiseorg.jsp</result>
+    			<result name="list">franchiseorg.jsp</result>
+    			<result name="listTemp">franchiseorgtemp.jsp</result>
+    			<result name="update">update.jsp</result>
+    			<result name="detail">detail.jsp</result>
+    			<result name="qualityCheck">qualityCheck.jsp</result>
+    	 </action>
+	
+		 <!-- 企业 -->    	 
+    	 <action name="*Org" method="{1}" class="orgAction">
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+    		<result name="success">org.jsp</result>
+            <result name="temp">orgTemp.jsp</result>
+            <result name="input">edit.jsp</result>
+            <result name="temp-input">editTemp.jsp</result>
+            <result name="detail">detail.jsp</result>
+            <result name="franchise">franchise.jsp</result>
+    	 </action>
+    	 
+    	 <!-- 企业产品 -->    	 
+    	 <action name="*OrgProduct" method="{1}" class="orgProductAction">
+    			<result name="list">orgproduct.jsp</result>
+    			<result name="listTemp">orgproducttemp.jsp</result>
+    			<result name="update">update.jsp</result>
+    			<result name="detail">detail.jsp</result>
+    			<result name="qualityCheck">qualityCheck.jsp</result>
+    	 </action>
+    	 
+    	 <!-- 产品 -->    	 
+    	 <action name="*Product" method="{1}" class="productAction">
+    			<result name="list">product.jsp</result>
+    			<result name="listTemp">producttemp.jsp</result>
+    			<result name="update">update.jsp</result>
+    			<result name="detail">detail.jsp</result>
+    	 </action>
+    	 
+    	 
+    	 <!-- 区域 -->    	 
+    	 <action name="*Region" method="{1}" class="regionAction">
+    			<result name="success">region.jsp</result>
+    			<result name="update">update.jsp</result>
+    	 </action>
+    	 
+    	 <!-- 企业类型 -->    	 
+    	 <action name="*OrgType" method="{1}" class="orgTypeAction">
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+			<result name="success">orgType.jsp</result>
+            <result name="update">orgTypeUpdate.jsp</result>
+    	 </action>
+    	 
+    	 <!-- 数据类型字段域 -->    	 
+    	 <action name="*DataField" method="{1}" class="dataFieldAction">
+    			<result name="success">datafield.jsp</result>
+    	 </action>
+    	 
+    	 <!-- 上传文件 -->    	 
+    	 <action name="*UploadFile" method="{1}" class="uploadFileAction">
+    			<result name="success">uploadfile.jsp</result>
+    			<param name="inputPath">templates/TEMPLATE_ORG.xls</param>
+				<result name="templateDownload" type="stream">
+					<param name="contentType">application/vnd.ms-excel</param>
+					<param name="contentDisposition">attachment;filename="${templateFileName}"</param>
+					<param name="inputName">templates</param>
+					<param name="bufferSize">4096</param>
+				</result>
+					<result name="download" type="stream">
+					<param name="contentType">application/octet-stream</param>
+					<param name="contentDisposition">attachment;filename="${fileName}"</param>
+					<param name="inputName">inputStream</param>
+					<param name="bufferSize">4096</param>
+				</result>
+    	 </action>
+    	 
+    	 <!-- 主数据索引管理 -->
+    	 <action name="*Index" method="{1}" class="indexAction">
+    			<result name="success">indexed.jsp</result>
+    	 </action>
+	</package>
+    
+	
+</struts>    

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 主数据 -->
+	<context:component-scan base-package="com.asc.seat.service,com.asc.mds.service,com.asc.mds.root.iservice" />
+	
+	<bean id="hibernateSearcher" class="com.asc.search.hibernate4.HibernateSearcher">
+		<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+	</bean>
+		
+</beans>

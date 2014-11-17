@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd 
+      					http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd"
+    default-autowire="byName" default-lazy-init="true">
+	
+	<jaxws:endpoint id="orgXService" address="/orgXService" implementor="#orgService" />
+	
+	<jaxws:endpoint id="regionXService" address="/regionXService" implementor="#regionService" />
+	
+	<jaxws:endpoint id="productXService" address="/productXService" implementor="#productService" />
+	
+	<jaxws:endpoint id="orgProductXService" address="/orgProductXService" implementor="#orgProductService" />
+	
+	<jaxws:endpoint id="factoryOrgXService" address="/factoryOrgXService" implementor="#factoryOrgService" />
+	
+	<jaxws:endpoint id="franchiseOrgXService" address="/franchiseOrgXService" implementor="#franchiseOrgService" />
+   
+</beans>

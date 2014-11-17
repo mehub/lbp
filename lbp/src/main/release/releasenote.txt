@@ -1,0 +1,112 @@
+当前版本：V3.6.0-DEV-23526
+
+版本时间：2013.08.12
+
+发   布  人：chenzhenling
+
+备          注：v3.6为主版分支，暂通过文件服务器发布，后期调整至bamboo
+
+更新说明：
+	
+	1. prototype重构整合，实现高内聚低耦合，定义
+		|--asc-common
+			|--asc-common-util
+			|--asc-common-persist
+			|--asc-common-cache
+			|--asc-common-conf
+			|--asc-common-excel
+			|--asc-common-ftp
+			|--asc-common-hardware
+			|--asc-common-httpclient
+			|--asc-common-jsch
+			|--asc-common-mail
+			|--asc-common-notify			
+			|--asc-common-web
+		|--asc-security
+		|--asc-search
+		|--asc-webservice
+
+	2. 重构asc-common，依据prototype项目结构调整所有项目依赖；
+
+	3. 框架升级：spring至3.2.3、hibernate至4.2.2
+
+	4. 升级asc-common-persist
+	
+	5. 升级solr至4.x，提供对外全文所搜功能（因mds中hibernate-search的lucene版本低于solr4.x，故solr暂不提供索引维护功能）
+		org：			企业
+		product：		产品
+		region：			区域
+		custalias：		客户别称表
+		factoryorg：		厂商企业（加速DB的模糊检索功能）
+		franchiseorg：	经销商企业（加速DB的模糊检索功能）
+
+	6. 升级分词引擎只jcseg
+
+	7. 调整DPS所有项目依赖，及持久化与公共接口调用
+		DCP
+		DPE
+		DI
+		TWC
+		WROKBENCH
+		
+	8. 添加webservice超时设置
+
+各项目明细：
+
+	MDS3.6：
+		1. 集成hibernate-search；
+		
+		2. 索引维护通过mds接口对外提供；
+
+		3. 企业管理、厂商企业管理、经销商企业管理中，名称的自动补全功能，使用全文检索支持，查询的like功能可选，默认不开启；
+
+		4. 增加索引管理功能，可重建、更新、删除相关模块索引；
+		
+		5. 增加客户别称表查询功能；
+	
+	DI3.6：
+		1. 调整以配合DAS2数据同步
+
+		2. 增加手动同步功能，可在twc中设置，设置后可人工选择相关批次进行同步操作；
+
+	DPE3.6：
+		1. 产品转换依据药厂过滤，工单：DPD-20130701-02
+
+		2. 修复当转换处理结束保存错误数据时，且工作台修复亦同时间段结束时，会重复报错
+			
+		3. 其他bug修复
+		
+	WORKBENCH3.6:
+		
+		1. 修复接口移至workbench
+
+		2. 并发问题：大量数据报同一种类型错误时，会导致数据滞留dps_processing_data，未被成功修复转出
+		
+		3. 建议值检索search模块升级；
+		
+	TWC 3.6：
+		
+		1. 工作台异常复位功能；
+
+
+部署说明：
+	1. 执行script目录中相关数据库脚本
+
+	2. 修改各项目配置文件：hibernate.properties、db.properties、init.properties、jcseg.properties等，相关参数
+	
+	3. 部署mds.war、asc-solr.war、dcp.war、dps-engine.war、dps-di.war、dps-workbench.war、dps-twc.war;
+	
+	4. 在dcp中上传规则包RuleJar.zip
+
+	5. 增加菜单：
+		a. 菜单名：索引管理，		同级索引：4，	父菜单：主数据管理
+		b. 菜单名：索引管理，		同级索引：1，	父菜单：索引管理，	URL：/mds/listIndex.action
+		c. 菜单名：客户别称表，	同级索引：3，	父菜单：企业关系，	URL：/mds/factoryorg/listCustomerAlias.action
+		d. 菜单名：批次配置，		同级索引：5，	父菜单：DI数据拦截，	URL：/protected/DI/batch_config.jsp；
+
+	6. solr-md目录为solr home相关配置
+
+	7. lexicon为jcseg的分词词库
+
+
+

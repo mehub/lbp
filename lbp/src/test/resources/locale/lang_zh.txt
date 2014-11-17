@@ -1,0 +1,84 @@
+#User Log Message
+CreateUser = 创建用户
+UserDetail = 用户信息：{0}
+UpdateUser = 更新用户
+UpdateUserDetail = 更改内容：{0}
+LockUser = 用户锁定
+UnLockUser = 用户解锁
+DeleteUser = 删除用户
+UserCodeDetail = 用户编码列表：{0}
+UserLogin = 用户登录
+UserLoginDetail = 登录名：{0}，用户：{1}
+
+#Role Log Message
+CreateRole = 创建角色
+RoleDetail = 角色信息：{0}
+UpdateRole = 更新角色
+UpdateRoleDetail = 更改内容：{0}
+DeleteRole = 删除角色
+
+#Group Log Message
+CreateGroup = 创建用户组
+GroupDetail = 用户组信息：{0}
+UpdateGroup = 更新用户组
+UpdateGroupDetail = 更改内容：{0}
+DeleteGroup = 删除用户组
+
+#Auth Log Message
+CreateAuth = 创建权限
+AuthDetail = 权限信息：{0}
+UpdateAuth = 更新权限
+UpdateAuthDetail = 更改内容：{0}
+DeleteAuth = 删除权限
+
+#Menu Log Message
+CreateMenu = 创建菜单
+MenuDetail = 菜单信息：{0}
+UpdateMenu = 更新菜单
+UpdateMenuDetail = 更改内容：{0}
+DeleteMenu = 删除菜单
+UpdateMenuStruct = 调整菜单树结构
+UpdateMenuStructDetail = 菜单编码： {0}
+
+
+#URL Log Message
+CreateURL = 创建URL资源
+URLDetail = URL资源信息：{0}
+UpdateURL = 更新URL资源
+UpdateURLDetail = 更改内容：{0}
+DeleteURL = 删除URL资源
+
+#User Relate Role Log Message
+RelateUserRole = 用户关联角色
+UserRoleDetail = 用户：{0}，角色列表：{1}
+
+#User Relate Auth Log Message
+RelateUserAuth = 用户关联权限
+UserAuthDetail = 用户：{0}，权限列表：{1}
+
+#Role Relate Auth Log Message
+RelateRoleAuth = 角色关联权限
+RoleAuthDetail = 角色：{0}，权限列表：{1}
+
+#Menu Relate Auth Log Message
+RelateMenuAuth = 菜单关联权限
+MenuAuthDetail = 菜单：{0}，权限：{1}
+
+#URL Relate Auth Log Message
+RelateURLAuth = URL资源关联权限
+URLAuthDetail = URL资源：{0}，权限：{1}
+
+#User Relate Group Log Message
+RelateUserGroup = 用户关联用户组
+UserGroupDetail = 用户：{0}，用户组：{1}
+
+#Date Convert to Text
+DateConvertToSeconds = 秒前
+DateConvertToMinutes = 分钟前
+DateConvertToHours = 小时前
+DateConvertToDays = 天前
+DateConvertToMonths = 个月前
+
+##### Platform Chinese Text ####
+DefaultGroup = 默认组
+DefaultAuthority = 默认权限
